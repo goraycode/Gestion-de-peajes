@@ -1,3 +1,10 @@
+:root {
+  --lyricsPoppins: "Poppins", sans-serif;
+  --lyricsMontserrat: "Montserrat", sans-serif;
+  --principalColor: #00fddc;
+  --darkColor: #22223b;
+  --whiteColor: #dddbf1;
+}
 *,
 *::before,
 *::after {
@@ -10,3 +17,6 @@ html {
   box-sizing: inherit;
 }
 
+body {
+  font-family: var(--lyricsMontserrat);
+}
