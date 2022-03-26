@@ -20,3 +20,103 @@ html {
 body {
   font-family: var(--lyricsMontserrat);
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  max-width: 90%;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.background {
+  padding: 5rem;
+  background-image: linear-gradient(
+      to bottom,
+      transparent 50%,
+      var(--principalColor) 0%
+    ),
+    url(../img/peaje.jpg);
+}
+
+@media (min-width: 768px) {
+  .background {
+    background-image: linear-gradient(
+        to right,
+        transparent 50%,
+        var(--principalColor) 0%
+      ),
+      url(../img/peaje.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 120rem;
+    background-position: center bottom;
+    height: 100vh;
+  }
+}
+
+.background__grid {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.background__container {
+  grid-row: 2 / 3;
+}
+
+@media (min-width: 768px) {
+  .background__grid {
+    grid-template-rows: none;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .background__container {
+    grid-column: 2 / 3;
+    grid-row: unset;
+  }
+}
+
+.form {
+  padding: 1rem 0 0 0;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.field {
+  position: relative;
+}
+
+.field input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  outline: none;
+  border: 1px solid var(--whiteColor);
+  transition: border-color 500ms ease-in-out;
+}
+
+.field label {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  font-family: var(--lyricsPoppins);
+  transition: top 500ms ease-in-out;
+}
+
+.field input[type="text"]:focus {
+  border: 1px solid var(--darkColor);
+}
+
+.field input[type="text"]:focus ~ label,
+.field input[type="text"]:valid ~ label {
+  top: -50%;
+}
