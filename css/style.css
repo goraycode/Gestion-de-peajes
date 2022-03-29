@@ -64,6 +64,7 @@ h1 {
 
 .background__grid {
   display: grid;
+  gap: 2rem;
   grid-template-rows: repeat(2, 1fr);
 }
 
@@ -149,4 +150,8 @@ h1 {
 .button:hover {
   background-color: var(--whiteColor);
   color: var(--darkColor);
+}
+
+.form .table > :not(caption) > * > * {
+  background-color: var(--darkColor);
 }

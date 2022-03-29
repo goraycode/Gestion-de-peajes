@@ -6,6 +6,7 @@ let car = {};
 let cantTotalAmbosSentidos;
 let cantTotalSoloSentido;
 
+
 function errorMessage() {
     Swal.fire({
         icon: 'error',
@@ -46,6 +47,10 @@ export function getPrint(e) {
 
         case '2':
             amountOnlySense(cars);
+            break;
+
+        case '3':
+           
             break;
 
         default:
@@ -114,7 +119,10 @@ export function amountBothSense(cars) {
     ui.printAmountBothTotal();
 
 
+
 }
+
+
 
 
 function amountOnlySense(cars) {
@@ -172,7 +180,12 @@ function amountOnlySense(cars) {
         }
     });
 
-    const uiOnlySense = new UIcarSense(sumCat1Sense1, sumCat1Sense2, sumCat2Sense1, sumCat2Sense2, sumCat3Sense1, sumCat3Sense2, sumCat4Sense1, sumCat4Sense2, sumCat5Sense1, sumCat5Sense2);
+    const uiOnlySense = new UIcarSense(sumCat1Sense1, sumCat1Sense2,
+        sumCat2Sense1, sumCat2Sense2,
+        sumCat3Sense1, sumCat3Sense2,
+        sumCat4Sense1, sumCat4Sense2,
+        sumCat5Sense1, sumCat5Sense2);
+
     uiOnlySense.printAmountTotal();
 
 }
