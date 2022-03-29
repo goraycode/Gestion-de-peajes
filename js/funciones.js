@@ -1,5 +1,5 @@
 import { nameUser, placa, form, sense, category } from "./variables.js";
-import { UI, UIcarSense } from './clases.js';
+import { Average, UI, UIcarSense } from './clases.js';
 
 export let cars = [];
 let car = {};
@@ -194,7 +194,7 @@ function amountOnlySense(cars) {
 
 
 function averageCategory() {
-    let par, totalCat1 = 0, averageP = 0, averageI, sumP = 0, sumI = 0;
+    let par, totalCat1 = 0, averageP = 0, averageI = 0, sumP = 0, sumI = 0;
 
     totalCat1 = amountBothSense(cars);
 
@@ -206,17 +206,20 @@ function averageCategory() {
             let latestDigit = Number(car.placa.slice(-1));
             if (latestDigit % 2 === 0) {
                 sumP++;
-                averageP = totalCat1 / sumP;
+                averageP = (totalCat1 * 8900) / sumP;
 
             } else {
                 sumI++;
-                averageI = totalCat1 / sumI;
+                averageI = (totalCat1 * 8900) / sumI;
             }
         }
     });
 
     console.log(`Promedio de pares: ${averageP}`);
     console.log(`Promedio de impares: ${averageI}`);
+
+    const printAverage = new Average(averageP, averageI);
+    printAverage.printAverage();
 
 
 }

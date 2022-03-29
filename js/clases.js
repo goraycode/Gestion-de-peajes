@@ -171,10 +171,56 @@ export class UIcarSense extends UI {
 }
 
 
-class AveragePrint {
+export class Average {
     constructor(even, odd) {
         this.even = even;
         this.odd = odd;
-        
     }
+
+    printAverage() {
+        const div = document.createElement('div');
+        div.classList.add('form__table');
+        const p = document.createElement('p');
+        p.textContent = 'Promedio de recaudo para vehículos de categoria 1';
+        div.appendChild(p);
+
+
+        const getDiv = document.querySelector('div.form__table');
+
+        if (getDiv !== null) {
+            getDiv.remove();
+        }
+
+        const table = document.createElement('table');
+        table.className = 'table table-dark table-stripedr';
+
+        table.innerHTML = `
+        <thead>
+            <tr>
+                <th>Placa finalizada</th>
+                <th>Promedio</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Par</td>
+                <td>${this.even.toFixed(2)}</td>
+            </tr>
+            <tr>
+                <td>Impar</td>
+                <td>${this.odd.toFixed(2)}</td>
+            </tr>
+        </tbody>
+            `;
+
+        div.appendChild(table);
+
+
+
+        form.append(div);
+
+
+    }
+
+
 }
