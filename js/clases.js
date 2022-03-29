@@ -85,8 +85,12 @@ export class UI {
     }
 
     calculatePercentage(sum, total) {
+
+        if (sum === 0) {
+            return 0
+        }
         sum = (sum * 100) / total;
-        return sum;
+        return sum.toFixed(2);
     }
 
 

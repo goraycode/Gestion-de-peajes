@@ -112,7 +112,7 @@ h1 {
   position: relative;
 }
 
-.field input[type="text"] {
+.field input[type="text"], .field input[type="number"]{
   width: 100%;
   padding: 0.5rem;
   outline: none;
@@ -133,7 +133,9 @@ h1 {
 }
 
 .field input[type="text"]:focus ~ label,
-.field input[type="text"]:valid ~ label {
+.field input[type="text"]:valid ~ label,
+.field input[type="number"]:focus ~ label,
+.field input[type="number"]:valid ~ label {
   top: -50%;
 }
 
