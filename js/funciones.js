@@ -3,8 +3,7 @@ import { UI, UIcarSense } from './clases.js';
 
 export let cars = [];
 let car = {};
-let cantTotalAmbosSentidos;
-let cantTotalSoloSentido;
+let vehiculos;
 
 
 function errorMessage() {
@@ -30,7 +29,8 @@ export function validateEntry(e) {
             category: Number(category.value)
         }
         cars = [...cars, car];
-        console.log(cars);
+
+        console.log(cars.length);
 
         resetFormulario();
     }
@@ -50,7 +50,7 @@ export function getPrint(e) {
             break;
 
         case '3':
-           
+
             break;
 
         default:
@@ -66,7 +66,7 @@ function resetFormulario() {
 
 export function amountBothSense(cars) {
     let sumCat1 = 0, sumCat2 = 0, sumCat3 = 0, sumCat4 = 0, sumCat5 = 0;
-    cantTotalAmbosSentidos = cars.filter((car) => {
+    vehiculos = cars.filter((car) => {
 
         switch (car.category) {
             case 1:
@@ -118,9 +118,8 @@ export function amountBothSense(cars) {
     const ui = new UI(sumCat1, sumCat2, sumCat3, sumCat4, sumCat5);
     ui.printAmountBothTotal();
 
-
-
 }
+
 
 
 
@@ -132,7 +131,7 @@ function amountOnlySense(cars) {
         sumCat4Sense1 = 0, sumCat4Sense2 = 0,
         sumCat5Sense1 = 0, sumCat5Sense2 = 0;
 
-    cantTotalSoloSentido = cars.filter((car) => {
+    vehiculos = cars.filter((car) => {
 
         switch (car.category) {
             case 1:

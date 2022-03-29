@@ -1,3 +1,4 @@
+import { cars } from "./funciones.js";
 import { form } from "./variables.js";
 
 export class UI {
@@ -34,6 +35,7 @@ export class UI {
                 <th>Total Vehículos</th>
                 <th>$Valor</th>
                 <th>$ Total recaudo</th>
+                <th>Porcentaje %</th>
           </tr>
         </thead>
         <tbody>
@@ -42,30 +44,35 @@ export class UI {
                 <td>${this.sum1}</td>
                 <td>8900</td>
                 <td>${this.sum1 * 8900}</td>
+                <td>${this.calculatePercentage(this.sum1, cars.length)}%</td>
             </tr>
             <tr>
                 <td>2</td>
                 <td>${this.sum2}</td>
                 <td>12300</td>
                 <td>${this.sum2 * 12300}</td>
+                <td>${this.calculatePercentage(this.sum2, cars.length)}%</td>
             </tr>
             <tr>
                 <td>3</td>
                 <td>${this.sum3}</td>
                 <td>28700</td>
                 <td>${this.sum3 * 28700}</td>
+                <td>${this.calculatePercentage(this.sum3, cars.length)}%</td>
             </tr>
             <tr>
                 <td>4</td>
                 <td>${this.sum4}</td>
                 <td>34800</td>
                 <td>${this.sum4 * 34800}</td>
+                <td>${this.calculatePercentage(this.sum4, cars.length)}%</td>
             </tr>
             <tr>
                 <td>5</td>
                 <td>${this.sum5}</td>
                 <td>48500</td>
-                <td>${this.sum1 * 48500}</td>
+                <td>${this.sum5 * 48500}</td>
+                <td>${this.calculatePercentage(this.sum5, cars.length)}%</td>
             </tr>
         </tbody>
         `;
@@ -77,60 +84,9 @@ export class UI {
         form.appendChild(div);
     }
 
-    printMoney() {
-        //creamos una tabla
-        const div = document.createElement('div');
-        div.classList.add('form__table');
-        const p = document.createElement('p');
-        p.textContent = 'Recaudo de dinero por cada categoria';
-        div.appendChild(p);
-
-
-        const getDiv = document.querySelector('div.form__table');
-
-        if (getDiv !== null) {
-            getDiv.remove();
-        }
-
-        const table = document.createElement('table');
-        table.className = 'table table-dark table-stripedr';
-
-        table.innerHTML = `
-        <thead>
-            <tr>
-                <th>Categoria</th>
-                <th>Total $</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>${this.sum1 * 8900}</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>${this.sum2 * 12300}</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>${this.sum3 * 28700}</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>${this.sum4 * 34800}</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>${this.sum5 * 48500}</td>
-            </tr>
-        </tbody>
-        `;
-
-        div.appendChild(table);
-
-
-
-        form.appendChild(div);
+    calculatePercentage(sum, total) {
+        sum = (sum * 100) / total;
+        return sum;
     }
 
 
