@@ -62,9 +62,19 @@
                             </div>
                         </div>
 
-                        <div class="form__buttons">
+                        <div class="form__fields">
                             <input type="submit" class="button" id="buttonSave" value="Cobrar">
-                            <input type="button" class="button" id="buttonPrint" value="Realizar reporte">
+                            <div class="field-reporte">
+                                <label for="reportes">Reporte</label>
+                                <select name="reporte" id="reporte">
+                                    <option value="0" selected disabled>Seleccione...</option>
+                                    <option value="1">Cantidad total de vehículos en ambos sentidos</option>
+                                    <option value="2">Cantidad de vehículos en cada sentido</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
                         </div>
                     </form>
                 </div>

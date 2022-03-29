@@ -1,6 +1,5 @@
-import { UI } from './clases.js';
-import { validateEntry } from './funciones.js';
-import { buttonPrint, category, form, sense } from './variables.js';
+import {getPrint, validateEntry } from './funciones.js';
+import { form, selectPrint } from './variables.js';
 
 eventListeners();
 function eventListeners() {
@@ -10,11 +9,8 @@ function eventListeners() {
 
     form.addEventListener('submit', validateEntry);
 
-    buttonPrint.addEventListener('click', () => {
-
-        const ui = new UI(0, 0, 0, 0, 0);
-        ui.printAmountTotal();
-
+    selectPrint.addEventListener('change', (e) => {
+        getPrint(e.target.value);
     });
 
 

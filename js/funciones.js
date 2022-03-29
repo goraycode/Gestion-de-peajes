@@ -1,7 +1,7 @@
 import { nameUser, placa, form, sense, category } from "./variables.js";
-import { UI } from './clases.js';
+import { UI, UIcarSense } from './clases.js';
 
-let cars = [];
+export let cars = [];
 let car = {};
 let cantTotalAmbosSentidos;
 let cantTotalSoloSentido;
@@ -30,12 +30,27 @@ export function validateEntry(e) {
         }
         cars = [...cars, car];
         console.log(cars);
-        
-        amountBothSense(cars);
+
         resetFormulario();
     }
 
 
+}
+
+
+export function getPrint(e) {
+    switch (e) {
+        case '1':
+            amountBothSense(cars);
+            break;
+
+        case '2':
+            amountOnlySense(cars);
+            break;
+
+        default:
+            break;
+    }
 }
 
 
@@ -44,7 +59,7 @@ function resetFormulario() {
 }
 
 
-function amountBothSense(cars) {
+export function amountBothSense(cars) {
     let sumCat1 = 0, sumCat2 = 0, sumCat3 = 0, sumCat4 = 0, sumCat5 = 0;
     cantTotalAmbosSentidos = cars.filter((car) => {
 
@@ -96,7 +111,7 @@ function amountBothSense(cars) {
     });
 
     const ui = new UI(sumCat1, sumCat2, sumCat3, sumCat4, sumCat5);
-    ui.printAmountTotal();
+    ui.printAmountBothTotal();
 
 
 }
@@ -156,5 +171,8 @@ function amountOnlySense(cars) {
                 break;
         }
     });
+
+    const uiOnlySense = new UIcarSense(sumCat1Sense1, sumCat1Sense2, sumCat2Sense1, sumCat2Sense2, sumCat3Sense1, sumCat3Sense2, sumCat4Sense1, sumCat4Sense2, sumCat5Sense1, sumCat5Sense2);
+    uiOnlySense.printAmountTotal();
 
 }
