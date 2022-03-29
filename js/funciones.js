@@ -2,6 +2,7 @@ import { nameUser, placa, form, sense, category } from "./variables.js";
 import { Average, UI, UIcarSense } from './clases.js';
 
 export let cars = [];
+let recaudado = [];
 let car = {};
 let vehiculos;
 
@@ -51,6 +52,9 @@ export function getPrint(e) {
 
         case '3':
             averageCategory();
+            break;
+        case '4':
+            console.log(recaudado);
             break;
 
         default:

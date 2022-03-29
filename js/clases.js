@@ -8,6 +8,11 @@ export class UI {
         this.sum3 = sum3;
         this.sum4 = sum4;
         this.sum5 = sum5;
+        this.arrayRecaudos = [];
+        this.higher = 0;
+        this.less = 0;
+        this.positionMay = 0;
+        this.positionMen = 0;
     }
 
     printAmountBothTotal() {
@@ -16,6 +21,7 @@ export class UI {
         div.classList.add('form__table');
         const p = document.createElement('p');
         p.textContent = 'Total de vehículos de cada categoria en ambos sentidos y el recaudo en $';
+
         div.appendChild(p);
 
 
@@ -79,7 +85,26 @@ export class UI {
 
         div.appendChild(table);
 
+        const pHigherLess = document.createElement('p');
+        pHigherLess.textContent = `
+        El recaudo más alto se dio en la categoria
+        `;
 
+
+
+
+
+        form.appendChild(div);
+        this.printHiguerLess();
+    }
+
+    printHiguerLess() {
+        const div = document.createElement('div');
+        div.classList.add('form__fields');
+        const p = document.createElement('p');
+        p.textContent = `${this.higuerLess()}`;
+
+        div.appendChild(p);
 
         form.appendChild(div);
     }
@@ -93,6 +118,40 @@ export class UI {
         return sum.toFixed(2);
     }
 
+    higuerLess() {
+
+        this.arrayRecaudos = [...this.arrayRecaudos, this.sum1 * 8900,
+        this.sum2 * 12300,
+        this.sum3 * 28700,
+        this.sum4 * 34800,
+        this.sum5 * 48500];
+
+        this.less = Math.max(
+            this.sum1 * 8900,
+            this.sum2 * 12300,
+            this.sum3 * 28700,
+            this.sum4 * 34800,
+            this.sum5 * 48500);
+
+        this.arrayRecaudos.forEach((recaudo, index) => {
+            //obtenemos el mayor
+            if (recaudo > this.higher) {
+                this.higher = recaudo;
+                this.positionMay = index;
+            }
+
+            //obtenemos el menor
+
+            if (recaudo < this.less) {
+                this.less = recaudo;
+                this.positionMen = index;
+            }
+        });
+
+        console.log(this.arrayRecaudos);
+
+        return `Recaudo mayor: $${this.higher} de la categoria ${this.positionMay + 1} y el Recaudo menor: $${this.less} de la categoria ${this.positionMen + 1}`;
+    }
 
 }
 
