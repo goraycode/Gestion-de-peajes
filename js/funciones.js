@@ -30,7 +30,7 @@ export function validateEntry(e) {
         }
         cars = [...cars, car];
 
-        console.log(cars.length);
+        console.log(cars);
 
         resetFormulario();
     }
@@ -50,7 +50,7 @@ export function getPrint(e) {
             break;
 
         case '3':
-
+            averageCategory();
             break;
 
         default:
@@ -117,6 +117,9 @@ export function amountBothSense(cars) {
 
     const ui = new UI(sumCat1, sumCat2, sumCat3, sumCat4, sumCat5);
     ui.printAmountBothTotal();
+
+    //retornamos la suma para sacar el promedio de recaudo de la categoria 1
+    return sumCat1;
 
 }
 
@@ -186,5 +189,34 @@ function amountOnlySense(cars) {
         sumCat5Sense1, sumCat5Sense2);
 
     uiOnlySense.printAmountTotal();
+
+}
+
+
+function averageCategory() {
+    let par, totalCat1 = 0, averageP = 0, averageI, sumP = 0, sumI = 0;
+
+    totalCat1 = amountBothSense(cars);
+
+    par = cars.filter((car) => {
+        //aseguramos que solo filtre los que tengan categoria 1
+        if (car.category === 1) {
+            //obtenemos el ultimo digito de la placa
+
+            let latestDigit = Number(car.placa.slice(-1));
+            if (latestDigit % 2 === 0) {
+                sumP++;
+                averageP = totalCat1 / sumP;
+
+            } else {
+                sumI++;
+                averageI = totalCat1 / sumI;
+            }
+        }
+    });
+
+    console.log(`Promedio de pares: ${averageP}`);
+    console.log(`Promedio de impares: ${averageI}`);
+
 
 }

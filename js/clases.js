@@ -169,3 +169,12 @@ export class UIcarSense extends UI {
         form.append(div);
     }
 }
+
+
+class AveragePrint {
+    constructor(even, odd) {
+        this.even = even;
+        this.odd = odd;
+        
+    }
+}
