@@ -53,9 +53,6 @@ export function getPrint(e) {
         case '3':
             averageCategory();
             break;
-        case '4':
-            console.log(recaudado);
-            break;
 
         default:
             break;
@@ -121,6 +118,7 @@ export function amountBothSense(cars) {
 
     const ui = new UI(sumCat1, sumCat2, sumCat3, sumCat4, sumCat5);
     ui.printAmountBothTotal();
+    //ui.printHiguerLess();
 
     //retornamos la suma para sacar el promedio de recaudo de la categoria 1
     return sumCat1;
@@ -218,9 +216,6 @@ function averageCategory() {
             }
         }
     });
-
-    console.log(`Promedio de pares: ${averageP}`);
-    console.log(`Promedio de impares: ${averageI}`);
 
     const printAverage = new Average(averageP, averageI);
     printAverage.printAverage();

@@ -84,29 +84,29 @@ export class UI {
         `;
 
         div.appendChild(table);
-
-        const pHigherLess = document.createElement('p');
-        pHigherLess.textContent = `
-        El recaudo más alto se dio en la categoria
-        `;
-
-
-
-
+        div.appendChild(this.printHiguerLess());
 
         form.appendChild(div);
-        this.printHiguerLess();
+
     }
 
     printHiguerLess() {
         const div = document.createElement('div');
-        div.classList.add('form__fields');
+        div.classList.add('form__fields', 'container__text');
         const p = document.createElement('p');
         p.textContent = `${this.higuerLess()}`;
 
+
+        const divPrintHigherLess = document.querySelector('.container__text');
+
+        if (divPrintHigherLess !== null) {
+            divPrintHigherLess.remove();
+        }
+
         div.appendChild(p);
 
-        form.appendChild(div);
+        return div;
+
     }
 
     calculatePercentage(sum, total) {
@@ -147,8 +147,6 @@ export class UI {
                 this.positionMen = index;
             }
         });
-
-        console.log(this.arrayRecaudos);
 
         return `Recaudo mayor: $${this.higher} de la categoria ${this.positionMay + 1} y el Recaudo menor: $${this.less} de la categoria ${this.positionMen + 1}`;
     }
@@ -225,7 +223,7 @@ export class UIcarSense extends UI {
 
 
 
-        form.append(div);
+        form.appendChild(div);
     }
 }
 
@@ -276,7 +274,7 @@ export class Average {
 
 
 
-        form.append(div);
+        form.appendChild(div);
 
 
     }
